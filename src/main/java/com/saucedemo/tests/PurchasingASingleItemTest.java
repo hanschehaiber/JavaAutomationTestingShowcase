@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class PurchasingASingleItemTest {
+public class PurchasingASingleItemTest extends TestBase {
 
     @Test
     public void test() {
