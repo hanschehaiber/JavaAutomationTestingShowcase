@@ -1,9 +1,0 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-maven/target
-maven/*/target
-maven/.idea
-maven/*.iml
-maven/*/*.iml
-
