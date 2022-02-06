@@ -8,6 +8,7 @@ public class SauceDemoLoginPage {
 
     By username = By.xpath("//input[@data-test='username']");
     By password = By.id("password");
+    By login = By.cssSelector("#login-button");
 
     public SauceDemoLoginPage(WebDriver driver) {
         this.driver = driver;
@@ -19,5 +20,10 @@ public class SauceDemoLoginPage {
 
     public void inputUsername(String usernameText) {
         driver.findElement(username).sendKeys(usernameText);
+    }
+
+    public SwagLabProductsPage clickLogin(WebDriver driver) {
+        driver.findElement(login).click();
+        return new SwagLabProductsPage(driver);
     }
 }
