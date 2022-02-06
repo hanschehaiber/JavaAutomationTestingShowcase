@@ -4,7 +4,7 @@ import com.saucedemo.pages.SauceDemoLoginPage;
 import org.testng.annotations.Test;
 
 
-public class PurchasingASingleItemTest extends TestBase {
+public class PurchasingItemsTest extends TestBase {
 
     @Test
     public void test() {
