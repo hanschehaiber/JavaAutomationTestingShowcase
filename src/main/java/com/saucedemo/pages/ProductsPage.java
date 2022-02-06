@@ -2,10 +2,10 @@ package com.saucedemo.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class SwagLabProductsPage {
+public class ProductsPage {
     private WebDriver driver;
 
-    public SwagLabProductsPage(WebDriver driver) {
+    public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
 }
