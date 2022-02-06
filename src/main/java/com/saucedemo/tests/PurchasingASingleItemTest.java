@@ -1,6 +1,6 @@
 package com.saucedemo.tests;
 
-import org.testng.Assert;
+import com.saucedemo.pages.SauceDemoLoginPage;
 import org.testng.annotations.Test;
 
 
@@ -8,7 +8,13 @@ public class PurchasingASingleItemTest extends TestBase {
 
     @Test
     public void test() {
-        Assert.assertTrue(true);
+
+        driver.get(prop.getProperty("url"));
+        SauceDemoLoginPage sauceDemoLoginPage = new SauceDemoLoginPage(driver);
+        sauceDemoLoginPage.inputUsername("standard_user");
+        sauceDemoLoginPage.inputPassword("secret_sauce");
+        sauceDemoLoginPage.clickLogin(driver);
+
     }
 
 
