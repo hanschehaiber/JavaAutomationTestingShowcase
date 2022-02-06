@@ -9,7 +9,8 @@ public class LoginPage {
     By username = By.xpath("//input[@data-test='username']");
     By password = By.id("password");
     By login = By.cssSelector("#login-button");
-    By loginCredentials = By.id("login_credentials");
+    By displayedUsernames = By.id("login_credentials");
+    By displayedPassword = By.cssSelector("[class='login_password']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -24,8 +25,13 @@ public class LoginPage {
     }
 
     public boolean checkIfUsernamesArePresent() {
-        return driver.findElement(loginCredentials).isDisplayed();
+        return !driver.findElements(displayedUsernames).isEmpty();
     }
+
+    public boolean checkIfPasswordIsPresent() {
+        return driver.findElement(displayedPassword).isDisplayed();
+    }
+
 
     public ProductsPage clickLogin(WebDriver driver) {
         driver.findElement(login).click();
