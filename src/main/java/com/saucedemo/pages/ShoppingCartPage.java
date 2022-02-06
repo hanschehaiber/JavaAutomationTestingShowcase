@@ -11,11 +11,11 @@ public class ShoppingCartPage extends BasePage {
     private static final By cartItems = By.cssSelector("[class='cart_item']");
     private static final By checkout = By.cssSelector("[data-test='checkout']");
 
-    List<WebElement> cartItemList;
+    private List<WebElement> cartItemList;
 
     public ShoppingCartPage(WebDriver driver) {
         super(driver);
-        cartItemList = this.driver.findElements(cartItems);
+        cartItemList = getDriver().findElements(cartItems);
     }
 
     public int checkNumOfItemsInCart() {
@@ -23,8 +23,8 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public CheckoutInfoPage clickCheckout() {
-        driver.findElement(checkout).click();
-        return new CheckoutInfoPage(driver);
+        getDriver().findElement(checkout).click();
+        return new CheckoutInfoPage(getDriver());
 
     }
 

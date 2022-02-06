@@ -12,6 +12,6 @@ public class CheckoutInfoPage extends BasePage {
     }
 
     public boolean checkIfTitleIsDisplayed() {
-        return driver.findElement(title).isDisplayed();
+        return getDriver().findElement(title).isDisplayed();
     }
 }

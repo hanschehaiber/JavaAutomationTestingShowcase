@@ -15,8 +15,7 @@ public class ProductsPage extends BasePage {
 
     public ProductsPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
-        inventoryList = this.driver.findElements(inventoryItems);
+        inventoryList = getDriver().findElements(inventoryItems);
     }
 
     public double getPriceByIndex(int index) {

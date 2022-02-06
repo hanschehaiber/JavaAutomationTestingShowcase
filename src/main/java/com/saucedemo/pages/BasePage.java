@@ -4,7 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage {
-    WebDriver driver;
+    private WebDriver driver;
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 
     private static final By shoppingCart = By.cssSelector("[class='shopping_cart_link']");
 
