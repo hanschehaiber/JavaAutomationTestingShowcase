@@ -2,6 +2,7 @@ package com.saucedemo.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.FileInputStream;
@@ -27,6 +28,11 @@ public class TestBase {
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
+    }
+
+    @AfterSuite
+    public void tearDown() {
+        driver.quit();
     }
 
 }
