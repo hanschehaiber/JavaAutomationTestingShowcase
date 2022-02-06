@@ -4,13 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
-    WebDriver driver;
+    private WebDriver driver;
 
-    By username = By.xpath("//input[@data-test='username']");
-    By password = By.id("password");
-    By login = By.cssSelector("#login-button");
-    By displayedUsernames = By.id("login_credentials");
-    By displayedPassword = By.cssSelector("[class='login_password']");
+    private static final By username = By.xpath("//input[@data-test='username']");
+    private static final By password = By.id("password");
+    private static final By login = By.cssSelector("#login-button");
+    private static final By displayedUsernames = By.id("login_credentials");
+    private static final By displayedPassword = By.cssSelector("[class='login_password']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
