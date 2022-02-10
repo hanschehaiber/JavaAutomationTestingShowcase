@@ -11,6 +11,7 @@ public class LoginPage {
     private static final By login = By.cssSelector("#login-button");
     private static final By displayedUsernames = By.id("login_credentials");
     private static final By displayedPassword = By.cssSelector("[class='login_password']");
+    private static final By error = By.cssSelector("[data-test='error']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -32,9 +33,12 @@ public class LoginPage {
         return driver.findElement(displayedPassword).isDisplayed();
     }
 
-
     public ProductsPage clickLogin(WebDriver driver) {
         driver.findElement(login).click();
         return new ProductsPage(driver);
+    }
+
+    public String getErrorMessage() {
+        return driver.findElement(error).getText();
     }
 }
