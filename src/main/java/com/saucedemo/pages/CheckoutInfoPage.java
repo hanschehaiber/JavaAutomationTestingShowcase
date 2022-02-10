@@ -31,8 +31,8 @@ public class CheckoutInfoPage extends BasePage {
         getDriver().findElement(postalCode).sendKeys(postalCodeText);
     }
 
-    public CheckoutOverviewPage clickContinue() {
+    public CheckoutOverviewPage clickContinue(WebDriver driver) {
         getDriver().findElement(continueButton).click();
-        return new CheckoutOverviewPage(getDriver());
+        return new CheckoutOverviewPage(driver);
     }
 }

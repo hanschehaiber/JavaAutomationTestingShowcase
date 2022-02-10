@@ -16,7 +16,7 @@ public abstract class BasePage {
         this.driver = driver;
     }
 
-    public ShoppingCartPage clickShoppingCart() {
+    public ShoppingCartPage clickShoppingCart(WebDriver driver) {
         driver.findElement(shoppingCart).click();
         return new ShoppingCartPage(driver);
     }
