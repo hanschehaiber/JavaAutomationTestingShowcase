@@ -18,12 +18,14 @@ public class PurchasingItemsTest extends TestBase {
         String firstName = "John";
         String lastName = "Smith";
         String postalCode = "12345";
+        String userName = "standard_user";
+        String password = "secret_sauce";
 
         driver.get(prop.getProperty("url"));
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.inputUsername("standard_user");
-        loginPage.inputPassword("secret_sauce");
+        loginPage.inputUsername(userName);
+        loginPage.inputPassword(password);
         softly.assertTrue(loginPage.checkIfUsernamesArePresent());
         softly.assertTrue(loginPage.checkIfPasswordIsPresent());
 
