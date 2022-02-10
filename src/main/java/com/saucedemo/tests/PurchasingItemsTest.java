@@ -1,5 +1,6 @@
 package com.saucedemo.tests;
 
+import com.saucedemo.pages.CheckoutCompletePage;
 import com.saucedemo.pages.CheckoutInfoPage;
 import com.saucedemo.pages.CheckoutOverviewPage;
 import com.saucedemo.pages.LoginPage;
@@ -46,6 +47,12 @@ public class PurchasingItemsTest extends TestBase {
 
         softly.assertEquals(firstItemPrice, subTotal);
 
+        CheckoutCompletePage checkoutCompletePage = checkoutOverviewPage.clickFinish();
+
+        softly.assertTrue(checkoutCompletePage.checkIfCheckoutCompleteContainerIsDisplayed());
+        String completeTextMessage = checkoutCompletePage.getCompleteText();
+
+        softly.assertEquals(completeTextMessage, "Your order has been dispatched, and will arrive just as fast as the pony can get there!");
 
         softly.assertAll();
     }
