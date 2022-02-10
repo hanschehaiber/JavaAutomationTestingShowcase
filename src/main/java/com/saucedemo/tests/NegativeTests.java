@@ -16,7 +16,9 @@ public class NegativeTests extends TestBase {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.inputUsername(userName);
         loginPage.inputPassword(password);
+        Assert.assertFalse(loginPage.checkIfErrorMessageIsDisplayed());
         loginPage.clickLogin(driver);
+        Assert.assertTrue(loginPage.checkIfErrorMessageIsDisplayed());
         Assert.assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Sorry, this user has been locked out.");
 

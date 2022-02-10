@@ -1,6 +1,7 @@
 package com.saucedemo.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
@@ -40,5 +41,15 @@ public class LoginPage {
 
     public String getErrorMessage() {
         return driver.findElement(error).getText();
+    }
+
+    public boolean checkIfErrorMessageIsDisplayed() {
+        boolean isDisplayed;
+        try {
+            isDisplayed = driver.findElement(error).isDisplayed();
+        } catch (NoSuchElementException noSuchElementException) {
+            isDisplayed = false;
+        }
+        return isDisplayed;
     }
 }
