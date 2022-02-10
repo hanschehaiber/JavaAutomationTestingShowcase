@@ -10,6 +10,7 @@ public class CheckoutOverviewPage extends BasePage {
 
     private static final By title = By.cssSelector("[class='title']");
     private static final By subTotal = By.cssSelector("[class='summary_subtotal_label']");
+    private static final By finish = By.id("finish");
 
     public CheckoutOverviewPage(WebDriver driver) {
         super(driver);
@@ -32,5 +33,10 @@ public class CheckoutOverviewPage extends BasePage {
 
         assert extractedPrice != null;
         return Double.parseDouble(extractedPrice);
+    }
+
+    public CheckoutCompletePage clickFinish() {
+        getDriver().findElement(finish).click();
+        return new CheckoutCompletePage(getDriver());
     }
 }
