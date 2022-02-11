@@ -1,22 +1,21 @@
 package com.saucedemo.tests;
 
-import com.saucedemo.pages.CheckoutCompletePage;
-import com.saucedemo.pages.CheckoutInfoPage;
-import com.saucedemo.pages.CheckoutOverviewPage;
-import com.saucedemo.pages.LoginPage;
-import com.saucedemo.pages.ProductsPage;
-import com.saucedemo.pages.ShoppingCartPage;
+import com.saucedemo.pages.*;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 
 public class PurchasingItemsTest extends TestBase {
 
-    @Test
-    public void purchasingASingleItemTest() {
+    @DataProvider(name = "data-provider")
+    public Object[][] dataProviderMethod() {
+        return new Object[][] { { "John", "Smith" }, { "Luke", "Skywalker" } };
+    }
+
+    @Test(dataProvider = "data-provider")
+    public void purchasingASingleItemTest(String firstName, String lastName) {
         SoftAssert softly = new SoftAssert();
-        String firstName = "John";
-        String lastName = "Smith";
         String postalCode = "12345";
         String userName = "standard_user";
         String password = "secret_sauce";
