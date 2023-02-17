@@ -1,6 +1,9 @@
 package com.saucedemo.tests;
 
 import com.saucedemo.pages.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -32,7 +35,7 @@ public class PurchasingItemsTest extends TestBase {
         ProductsPage productsPage = loginPage.clickLogin(driver);
         double firstItemPrice = productsPage.getPriceByIndex(0);
         productsPage.clickAddToCartByIndex(0);
-        ShoppingCartPage shoppingCartPage = productsPage.clickShoppingCart(driver);
+        ShoppingCartPage shoppingCartPage = productsPage.clickShoppingCart();
 
         softly.assertEquals(shoppingCartPage.checkNumOfItemsInCart(), 1);
 
