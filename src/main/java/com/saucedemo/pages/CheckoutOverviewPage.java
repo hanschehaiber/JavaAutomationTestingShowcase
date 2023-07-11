@@ -35,8 +35,8 @@ public class CheckoutOverviewPage extends BasePage {
         return Double.parseDouble(extractedPrice);
     }
 
-    public CheckoutCompletePage clickFinish(WebDriver driver) {
+    public CheckoutCompletePage clickFinish() {
         getDriver().findElement(finish).click();
-        return new CheckoutCompletePage(driver);
+        return new CheckoutCompletePage(getDriver());
     }
 }

@@ -29,26 +29,26 @@ public class PurchasingItemsTest extends TestBase {
         softly.assertTrue(loginPage.checkIfPasswordIsPresent());
 
 
-        ProductsPage productsPage = loginPage.clickLogin(driver);
+        ProductsPage productsPage = loginPage.clickLogin();
         double firstItemPrice = productsPage.getPriceByIndex(0);
         productsPage.clickAddToCartByIndex(0);
         ShoppingCartPage shoppingCartPage = productsPage.clickShoppingCart();
 
         softly.assertEquals(shoppingCartPage.checkNumOfItemsInCart(), 1);
 
-        CheckoutInfoPage checkoutInfoPage = shoppingCartPage.clickCheckout(driver);
+        CheckoutInfoPage checkoutInfoPage = shoppingCartPage.clickCheckout();
         softly.assertTrue(checkoutInfoPage.checkIfTitleIsDisplayed());
         checkoutInfoPage.enterFirstName(firstName);
         checkoutInfoPage.enterLastName(lastName);
         checkoutInfoPage.enterPostalCode(postalCode);
-        CheckoutOverviewPage checkoutOverviewPage = checkoutInfoPage.clickContinue(driver);
+        CheckoutOverviewPage checkoutOverviewPage = checkoutInfoPage.clickContinue();
         softly.assertTrue(checkoutOverviewPage.checkIfTitleIsDisplayed());
 
         double subTotal = checkoutOverviewPage.getSubTotal();
 
         softly.assertEquals(firstItemPrice, subTotal);
 
-        CheckoutCompletePage checkoutCompletePage = checkoutOverviewPage.clickFinish(driver);
+        CheckoutCompletePage checkoutCompletePage = checkoutOverviewPage.clickFinish();
 
         softly.assertTrue(checkoutCompletePage.checkIfCheckoutCompleteContainerIsDisplayed());
         String completeTextMessage = checkoutCompletePage.getCompleteText();

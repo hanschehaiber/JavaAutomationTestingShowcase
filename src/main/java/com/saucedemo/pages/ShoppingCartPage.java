@@ -22,9 +22,9 @@ public class ShoppingCartPage extends BasePage {
         return cartItemList.size();
     }
 
-    public CheckoutInfoPage clickCheckout(WebDriver driver) {
+    public CheckoutInfoPage clickCheckout() {
         getDriver().findElement(checkout).click();
-        return new CheckoutInfoPage(driver);
+        return new CheckoutInfoPage(getDriver());
 
     }
 

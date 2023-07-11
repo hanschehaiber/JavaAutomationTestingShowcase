@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
-    private WebDriver driver;
-
+public class LoginPage extends BasePage {
     private static final By username = By.xpath("//input[@data-test='username']");
     private static final By password = By.id("password");
     private static final By login = By.cssSelector("#login-button");
@@ -15,38 +13,38 @@ public class LoginPage {
     private static final By error = By.cssSelector("[data-test='error']");
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void inputPassword(String passwordText) {
-        driver.findElement(password).sendKeys(passwordText);
+        getDriver().findElement(password).sendKeys(passwordText);
     }
 
     public void inputUsername(String usernameText) {
-        driver.findElement(username).sendKeys(usernameText);
+        getDriver().findElement(username).sendKeys(usernameText);
     }
 
     public boolean checkIfUsernamesArePresent() {
-        return !driver.findElements(displayedUsernames).isEmpty();
+        return !getDriver().findElements(displayedUsernames).isEmpty();
     }
 
     public boolean checkIfPasswordIsPresent() {
-        return driver.findElement(displayedPassword).isDisplayed();
+        return getDriver().findElement(displayedPassword).isDisplayed();
     }
 
-    public ProductsPage clickLogin(WebDriver driver) {
-        driver.findElement(login).click();
-        return new ProductsPage(driver);
+    public ProductsPage clickLogin() {
+        getDriver().findElement(login).click();
+        return new ProductsPage(getDriver());
     }
 
     public String getErrorMessage() {
-        return driver.findElement(error).getText();
+        return getDriver().findElement(error).getText();
     }
 
     public boolean checkIfErrorMessageIsDisplayed() {
         boolean isDisplayed;
         try {
-            isDisplayed = driver.findElement(error).isDisplayed();
+            isDisplayed = getDriver().findElement(error).isDisplayed();
         } catch (NoSuchElementException noSuchElementException) {
             isDisplayed = false;
         }
