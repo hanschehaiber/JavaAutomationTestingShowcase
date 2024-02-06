@@ -1,4 +1,4 @@
-package com.saucedemo.tests;
+package api.tests;
 
 import io.restassured.response.Response;
 import org.junit.Rule;
