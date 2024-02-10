@@ -1,0 +1,10 @@
+{
+  "status": 200,
+  "jsonBody": {
+    "arbitrary_json": [
+      1,
+      2,
+      3
+    ]
+  }
+}

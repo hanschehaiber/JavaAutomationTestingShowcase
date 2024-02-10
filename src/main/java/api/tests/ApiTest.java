@@ -35,5 +35,23 @@ public class ApiTest {
 
         System.out.println(response.getBody().prettyPrint());
     }
-    
+
+    @Test
+    public void testFullResponse() {
+        stubFor(get(urlEqualTo("/body-file"))
+                .willReturn(aResponse()
+                        .withHeader("Content-Type", "application/json")
+                        .withBodyFile("api/tests/mapping/testResponse.json")));
+
+        Response response = given().
+                baseUri("http://localhost").
+                when().
+                get("/body-file").
+                then().extract().response();
+
+//        Assert.assertEquals(200, response.statusCode());
+
+        System.out.println(response.getBody().prettyPrint());
+    }
+
 }
