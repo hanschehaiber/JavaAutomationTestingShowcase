@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 
 public class ApiTest {
     @Rule
-    public WireMockRule wireMockRule = new WireMockRule(9876);
+    public WireMockRule wireMockRule = new WireMockRule();
 
     @Test
     public void basicApiTest() {
@@ -27,7 +27,6 @@ public class ApiTest {
         //Hit the mocked endpoint with RestAssured Request Spec and get a response
         Response response = given().
                 baseUri("http://localhost").
-                port(9876).
                 when().
                 get("/some/thing").
                 then().extract().response();
