@@ -55,4 +55,24 @@ public class ApiTest {
         System.out.println(response.getBody().prettyPrint());
     }
 
+    @Test
+    public void testFitnessAppApi() {
+        String requestPath = "workout.json";
+        String baseUrl = "http://localhost";
+        String endpointUrl = "/exercises";
+        stubFor(get(urlEqualTo(endpointUrl))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withBodyFile(requestPath)));
+
+        Response response = given().
+                baseUri(baseUrl).
+                when().
+                get(endpointUrl).
+                then().extract().response();
+
+        System.out.println(response.getBody().prettyPrint());
+
+    }
+
 }
