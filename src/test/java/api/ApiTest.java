@@ -1,4 +1,4 @@
-package api.tests;
+package api;
 
 import io.restassured.response.Response;
 import org.junit.Rule;
@@ -38,10 +38,11 @@ public class ApiTest {
 
     @Test
     public void testFullResponse() {
+        String requestPath = "testResponse.json";
         stubFor(get(urlEqualTo("/body-file"))
                 .willReturn(aResponse()
-                        .withHeader("Content-Type", "application/json")
-                        .withBodyFile("api/tests/mapping/testResponse.json")));
+                        .withStatus(200)
+                        .withBodyFile(requestPath)));
 
         Response response = given().
                 baseUri("http://localhost").
@@ -49,7 +50,7 @@ public class ApiTest {
                 get("/body-file").
                 then().extract().response();
 
-//        Assert.assertEquals(200, response.statusCode());
+        Assert.assertEquals(200, response.statusCode());
 
         System.out.println(response.getBody().prettyPrint());
     }
