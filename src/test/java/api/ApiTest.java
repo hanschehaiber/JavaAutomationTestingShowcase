@@ -1,5 +1,6 @@
 package api;
 
+import com.fakefitnesswebapp.domain.Workout;
 import io.restassured.response.Response;
 import org.junit.Rule;
 import org.junit.Test;
@@ -63,6 +64,7 @@ public class ApiTest {
         stubFor(get(urlEqualTo(endpointUrl))
                 .willReturn(aResponse()
                         .withStatus(200)
+                        .withHeader("Content-Type", "text/json")
                         .withBodyFile(requestPath)));
 
         Response response = given().
@@ -70,6 +72,10 @@ public class ApiTest {
                 when().
                 get(endpointUrl).
                 then().extract().response();
+
+        Workout workout = response.getBody().as(Workout.class);
+
+        System.out.println("WORKOUT = " +  workout.toString());
 
         System.out.println(response.getBody().prettyPrint());
 
