@@ -1,32 +1,31 @@
 {
-  "workout": {
-    "name": "Full Body Workout",
-    "date": "2024-02-11",
-    "exercises": [
-      {
-        "name": "Squats",
-        "reps": 12,
-        "weight": 100,
-        "description": "Barbell squats targeting legs and glutes."
-      },
-      {
-        "name": "Bench Press",
-        "reps": 10,
-        "weight": 135,
-        "description": "Chest exercise using a barbell."
-      },
-      {
-        "name": "Deadlifts",
-        "reps": 8,
-        "weight": 185,
-        "description": "Lifting weights from the ground targeting multiple muscle groups."
-      },
-      {
-        "name": "Overhead Press",
-        "reps": 10,
-        "weight": 75,
-        "description": "Shoulder exercise using a barbell."
-      }
-    ]
-  }
+  "name": "Full Body Workout",
+  "date": "2024-02-11",
+  "exercises": [
+    {
+      "name": "Squats",
+      "reps": 12,
+      "weight": 100,
+      "description": "Barbell squats targeting legs and glutes."
+    },
+    {
+      "name": "Bench Press",
+      "reps": 10,
+      "weight": 135,
+      "description": "Chest exercise using a barbell."
+    },
+    {
+      "name": "Deadlifts",
+      "reps": 8,
+      "weight": 185,
+      "description": "Lifting weights from the ground targeting multiple muscle groups."
+    },
+    {
+      "name": "Overhead Press",
+      "reps": 10,
+      "weight": 75,
+      "description": "Shoulder exercise using a barbell."
+    }
+  ]
 }
+
