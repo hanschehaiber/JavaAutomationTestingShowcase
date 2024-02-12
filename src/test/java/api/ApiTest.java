@@ -17,6 +17,32 @@ public class ApiTest {
     public WireMockRule wireMockRule = new WireMockRule();
 
     @Test
+    public void testFitnessAppApi() {
+        String requestPath = "workout.json";
+        String baseUrl = "http://localhost";
+        String endpointUrl = "/exercises";
+        stubFor(get(urlEqualTo(endpointUrl))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "text/json")
+                        .withBodyFile(requestPath)));
+
+        Response response = given().
+                baseUri(baseUrl).
+                when().
+                get(endpointUrl).
+                then().extract().response();
+
+        Workout workout = response.getBody().as(Workout.class);
+
+
+        System.out.println("WORKOUT = " + workout.toString());
+
+        System.out.println(response.getBody().prettyPrint());
+
+    }
+
+    @Test
     public void basicApiTest() {
 
         //create the mock of a random url
@@ -56,29 +82,5 @@ public class ApiTest {
         System.out.println(response.getBody().prettyPrint());
     }
 
-    @Test
-    public void testFitnessAppApi() {
-        String requestPath = "workout.json";
-        String baseUrl = "http://localhost";
-        String endpointUrl = "/exercises";
-        stubFor(get(urlEqualTo(endpointUrl))
-                .willReturn(aResponse()
-                        .withStatus(200)
-                        .withHeader("Content-Type", "text/json")
-                        .withBodyFile(requestPath)));
-
-        Response response = given().
-                baseUri(baseUrl).
-                when().
-                get(endpointUrl).
-                then().extract().response();
-
-        Workout workout = response.getBody().as(Workout.class);
-
-        System.out.println("WORKOUT = " +  workout.toString());
-
-        System.out.println(response.getBody().prettyPrint());
-
-    }
 
 }
