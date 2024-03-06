@@ -13,8 +13,8 @@ This repository serves as a demonstration and reference for building a robust au
 
 ## Project Structure
 - UI Automation Testing Framework:
-``` src/main/java/com/saucedemo ``` 
+``` src/test/java/saucedemo ``` 
 
 - API Testing Framework (WIP):
-``` src/test/java/api ```
+``` src/test/java/fakefitnesswebapp ```
 

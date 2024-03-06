@@ -1,4 +1,4 @@
-package api;
+package fakefitnesswebapp;
 
 import com.fakefitnesswebapp.domain.Exercise;
 import com.fakefitnesswebapp.domain.Workout;
