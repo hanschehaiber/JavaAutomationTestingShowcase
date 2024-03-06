@@ -1,4 +1,4 @@
-package com.saucedemo.tests;
+package saucedemo;
 
 import com.saucedemo.pages.LoginPage;
 import org.testng.Assert;

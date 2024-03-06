@@ -1,4 +1,4 @@
-package com.saucedemo.tests;
+package saucedemo;
 
 import com.saucedemo.pages.*;
 import org.testng.annotations.DataProvider;
